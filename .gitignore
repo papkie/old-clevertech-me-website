@@ -4,7 +4,6 @@
 /app/config/parameters.yml
 /app/logs/*
 !app/logs/.gitkeep
-/composer.phar
 /vendor/*
 !vendor/.gitkeep
 /web/bundles/
@@ -13,5 +12,4 @@ web/js/
 nbproject/
 app/cache/
 composer.lock
-README.md
 web/media/cache/
