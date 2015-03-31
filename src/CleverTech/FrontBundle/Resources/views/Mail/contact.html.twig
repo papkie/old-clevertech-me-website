@@ -1,0 +1,10 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <b>Wiadomość od: {{name}} &lt;{{email}}&gt; {% if phone is not empty %}({{phone}}){% endif %}</b><br><br>
+        {{text|nl2br}}
+    </body>
+</html>
