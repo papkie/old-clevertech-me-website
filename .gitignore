@@ -4,10 +4,9 @@
 /app/config/parameters.yml
 /app/logs/*
 !app/logs/.gitkeep
-/app/phpunit.xml
-/bin/
 /composer.phar
-/vendor/
+/vendor/*
+!vendor/.gitkeep
 /web/bundles/
 web/css/
 web/js/
