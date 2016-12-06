@@ -1,4 +1,0 @@
-services:
-#    clever_tech_front.example:
-#        class: CleverTech\FrontBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
