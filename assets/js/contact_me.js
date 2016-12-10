@@ -21,41 +21,34 @@ $(function() {
 			if (firstName.indexOf(' ') >= 0) {
 				firstName = name.split(' ').slice(0, -1).join(' ');
 			}
-			$.ajax({
-				url: "//formspree.io/{{site.email}}",
-				type: "POST",
-				data: {
+			$.post("//formspree.io/{{site.email}}",
+				{
 					name: name,
 					_replyto: email,
 					message: message,
 					_subject: subject + (phone ? " - " + phone : '')
-				},
-				// dataType: "json",
-				cache: false,
-				success: function() {
-					// Success message
-					$('#success').html("<div class='alert alert-success'>");
-					$('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-						.append("</button>");
-					$('#success > .alert-success')
-						.append("<strong>Wiadomość została wysłana!</strong>");
-					$('#success > .alert-success')
-						.append('</div>');
+				}
+			).success(function() {
+				$('#success').html("<div class='alert alert-success'>");
+				$('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+					.append("</button>");
+				$('#success > .alert-success')
+					.append("<strong>Wiadomość została wysłana!</strong>");
+				$('#success > .alert-success')
+					.append('</div>');
 
-					//clear all fields
-					$('#contactForm').trigger("reset");
-				},
-				error: function() {
-					// Fail message
-					$('#success').html("<div class='alert alert-danger'>");
-					$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-						.append("</button>");
-					$('#success > .alert-danger').append("<strong>Błąd przy wysyłaniu wiadomości!");
-					$('#success > .alert-danger').append('</div>');
-					//clear all fields
-					$('#contactForm').trigger("reset");
-				},
-			})
+				//clear all fields
+				$('#contactForm').trigger("reset");
+			}).error(function() {
+				// Fail message
+				$('#success').html("<div class='alert alert-danger'>");
+				$('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+					.append("</button>");
+				$('#success > .alert-danger').append("<strong>Błąd przy wysyłaniu wiadomości!");
+				$('#success > .alert-danger').append('</div>');
+				//clear all fields
+				$('#contactForm').trigger("reset");
+			});
 		},
 		filter: function() {
 			return $(this).is(":visible");
