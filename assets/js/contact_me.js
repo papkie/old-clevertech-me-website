@@ -26,7 +26,7 @@ $(function() {
 				type: "POST",
 				data: {
 					name: name,
-					email: email,
+					_replyto: email,
 					message: message,
 					_subject: subject + (phone ? " - " + phone : '')
 				},
