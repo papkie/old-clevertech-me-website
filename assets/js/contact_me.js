@@ -22,7 +22,7 @@ $(function() {
 				firstName = name.split(' ').slice(0, -1).join(' ');
 			}
 			$.ajax({
-				url: "https://formspree.io/{{site.email}}",
+				url: "//formspree.io/{{site.email}}",
 				type: "POST",
 				data: {
 					name: name,
@@ -30,7 +30,7 @@ $(function() {
 					message: message,
 					_subject: subject + (phone ? " - " + phone : '')
 				},
-				dataType: "json",
+				// dataType: "json",
 				cache: false,
 				success: function() {
 					// Success message
