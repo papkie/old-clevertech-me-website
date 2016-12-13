@@ -27,7 +27,7 @@ $(function() {
 					_replyto: email,
 					message: message,
 					_subject: subject + (phone ? " - " + phone : '')
-				}
+				}, "json"
 			).success(function() {
 				$('#success').html("<div class='alert alert-success'>");
 				$('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
