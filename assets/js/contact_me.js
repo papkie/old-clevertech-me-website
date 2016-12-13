@@ -21,8 +21,9 @@ $(function() {
 			if (firstName.indexOf(' ') >= 0) {
 				firstName = name.split(' ').slice(0, -1).join(' ');
 			}
-			$.post({
+			$.ajax({
 				url: "//formspree.io/{{site.email}}",
+				type: "post",
 				data: {
 					name: name,
 					_replyto: email,
