@@ -21,13 +21,16 @@ $(function() {
 			if (firstName.indexOf(' ') >= 0) {
 				firstName = name.split(' ').slice(0, -1).join(' ');
 			}
-			$.post("//formspree.io/{{site.email}}",
-				{
+			$.post({
+				url: "//formspree.io/{{site.email}}",
+				data: {
 					name: name,
 					_replyto: email,
 					message: message,
 					_subject: subject + (phone ? " - " + phone : '')
-				}, "json"
+				}, 
+				dataType: "json"
+			}
 			).success(function() {
 				$('#success').html("<div class='alert alert-success'>");
 				$('#success > .alert-success').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
